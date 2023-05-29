@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style_shopPage.css">
+    <link rel="stylesheet" href="../styles/modal.css">
+    <link rel="stylesheet" href="../styles/cart.css">
+    <title>Shop</title>
+</head>
+<body>
+
+
+<form id="productData">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h3>Заповніть інформацію про товар</h3>
+    <div class="modal-content">
+        <div class="modal-content__item">
+            <label for="name">Имя</label><input type="text" id="name">
+        </div>
+        <div class="modal-content__item">
+            <label for="sex">Гендер</label>
+            <select id="sex" style="width: 208px;" >
+                <option value="Для чоловіка">Для чоловіка</option>
+                <option value="Для жінки">Для жінки</option>
+            </select>
+        </div>
+        <div class="modal-content__item">
+            <label for="price">Цена</label><input type="text" id="price">
+        </div>
+        <div class="modal-content__item">
+            <label for="description">Описание</label><input type="text" id="description">
+        </div>
+        <div class="modal-content__item">
+            <label for="type_of_product">Тип продукта</label><input type="text" id="type_of_product">
+        </div>
+        <div class="modal-content__item">
+            <label for="type">Тип(одежда обувь)</label>
+            <select id="type" style="width: 208px;" >
+                <option value="Одяг">Одяг</option>
+                <option value="Взуття">Взуття</option>
+            </select>
+        </div>
+        <div class="modal-content__item">
+            <label for="size">Размер</label>
+            <select id="size" style="width: 208px;" >
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+            </select>
+        </div>
+        <div class="modal-content__item">
+            <label for="rating">рейтинг</label><input type="text" id="rating">
+        </div>
+        <div class="modal-content__item">
+            <label for="season">Сезон</label>
+            <select id="season" style="width: 208px;" >
+                <option value="Осінь">Осінь</option>
+                <option value="Весна">Весна</option>
+                <option value="Літо">Літо</option>
+                <option value="Зима">Зима</option>
+                <option value="Всесезонний">Всесезонний</option>
+            </select>
+        </div>
+        <div class="modal-content__item">
+            <label for="collection_name">Имя коллекции</label><input type="text" id="collection_name">
+        </div>
+        <div class="modal-content__item">
+            <label for="images">картинка</label><input type="file" id="images" multiple>
+        </div>
+        <div class="add-res">
+            <input
+                    type="submit"
+                    value="Додати продукт"
+                    id="addProductInput"
+                    onclick="closeModal()"
+            />
+            <input type="reset" value="Скинути дані" />
+        </div>
+    </div>
+</form>
+
+<!--<form id="editPersonalData" class="formData1">-->
+<!--    <span class="close1" onclick="editData()">&times;</span>-->
+<!--    <h3>Змінити інформацію про тур</h3>-->
+<!--    <div class="modal-content__item">-->
+<!--        <label for="edit_id">id</label><input type="text" id="edit_id">-->
+<!--    </div>-->
+<!--    <div class="modal-content__item">-->
+<!--        <label for="edit_name">name</label><input type="text" id="edit_name">-->
+<!--    </div>-->
+<!--    <input-->
+<!--            type="submit"-->
+<!--            value="редактировать тур"-->
+<!--            id="edit"-->
+<!--            onclick="editData()"-->
+<!--    />-->
+<!--</form>-->
+
+
+<header>
+    <div class="header-content">
+        <div class="logo">
+            <a href="/"><img src="../img/logo.png" alt="logo"></a>
+            <span>Our logo</span>
+        </div>
+        <button id="addProductBtn" onclick="openModal()">Додати товар</button>
+        <div class="navigation">
+            <div class="navigation-block">
+                <a href="/about" class="navigation-block-btn">Про нас</a>
+                <a href="/shop" class="navigation-block-btn">Магазин</a>
+                <a href="/size" class="navigation-block-btn">Розмірна сітка</a>
+                <a href="/contacts" class="navigation-block-btn">Зв'язок з нами</a>
+            </div>
+            <div class="navigation-account-links">
+                <div style="display: flex">
+                    <a href="/personalPage"><img src="../img/account.png" alt="account"></a>
+                    <a href="/login" id="enter-btn">Увійти</a>
+                    <a href="/login" id="exit-btn">Вийти</a>
+                </div>
+                <div>
+                    <a id="open"><img src="../img/basket.png" alt="basket"></a><span id="basketLength">0</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="cart-wrap" id="cart-container">
+    <div class="cart-header">
+        <button class="icon" id="close"><img src="../img/cart-arrow.png" alt=""></button>
+        <h2>Cart</h2>
+    </div>
+    <div id="cart"></div>
+
+
+</div>
+
+
+<div class="introduction">
+    <div class="introduction-container">
+        <div class="introduction-phrase">
+            <h1>МАГАЗИН</h1>
+        </div>
+    </div>
+    <img src="../img/intro-shop.jpg" alt="intro-about-us">
+</div>
+
+
+
+<div class="main-container">
+
+    <select class="sorts" id="sorting">
+        <option value="fromLowPrice">від дешевих</option>
+        <option value="fromHighPrice">від дорогих</option>
+        <option value="date_added">новинки</option>
+        <option value="rating">популярні</option>
+    </select>
+
+   <div class="main-content">
+       <form id = "filters-form" class="filters">
+           <div style="border-bottom: 1px solid; font-size: 20px; font-weight: bold;">Фільтрувати за</div>
+           <ul id="filter-categories">
+                <li>
+                    <div class="filter-category">
+                        <span>Статтю</span>
+                        <span class="close-open">&#9660;</span>
+                    </div>
+                    <div class="collection-container">
+                        <label for="gender-male">
+                            <input type="checkbox" id="gender-male" name="gender" value="M">
+                            Чоловікам
+                        </label>
+                        <label for="gender-female">
+                            <input type="checkbox" id="gender-female" name="gender" value="F">
+                            Жінкам
+                        </label>
+                    </div> 
+                </li>
+                <li>
+                    <div class="filter-category">
+                        <span>Ціні</span>
+                        <span class="close-open">&#9660;</span>
+                    </div>
+                    <div class="collection-container">
+                        <label for="price-from">От:<input type="text" id="price-from" name="price-from"></label>
+                        <label for="price-to">До:<input type="text" id="price-to" name="price-to"></label>
+                    </div>
+                </li>
+                <li>
+                    <div class="filter-category">
+                        <span>Розміром</span>
+                        <span class="close-open">&#9660;</span>
+                    </div>
+                    <div class="collection-container">
+                        <label for="size-s"><input type="checkbox" id="size-s" name="size" value="S"/>S</label>
+                        <label for="size-m"><input type="checkbox" id="size-m" name="size" value="M"/>M</label>
+                        <label for="size-l"><input type="checkbox" id="size-l" name="size" value="L"/>L</label>
+                        <label for="size-xl"><input type="checkbox" id="size-xl" name="size" value="XL"/>XL</label>
+                    </div>
+                </li>
+                <li>
+                   <div class="filter-category">
+                       <span>Типом одягу</span>
+                       <span class="close-open">&#9660;</span>
+                   </div>
+                   <div class="collection-container">
+                        <label for="type-t-shirt"><input type="checkbox" id="type-t-shirt" name="type" value="Футболка"/>Футболки</label>
+                        <label for="type-jeans"><input type="checkbox" id="type-jeans" name="type" value="Джинси"/>Джинси</label>
+                        <label for="type-jacket"><input type="checkbox" id="type-jacket" name="type" value="Куртка"/>Куртки</label>
+                        <label for="type-hoodie"><input type="checkbox" id="type-hoodie" name="type" value="Худі"/>Худі</label>
+                   </div>
+                 </li>
+                <li>
+                    <div class="filter-category">
+                        <span>Сезоном</span>
+                        <span class="close-open">&#9660;</span>
+                    </div>
+                    <div class="collection-container">
+                        <label for="season-summer"><input type="checkbox" id="season-summer" name="season" value="Літо"/>Літо</label>
+                        <label for="season-spring"><input type="checkbox" id="season-spring" name="season" value="Весна"/>Весна</label>
+                        <label for="season-autumn"><input type="checkbox" id="season-autumn" name="season" value="Осінь"/>Осінь</label>
+                        <label for="season-winter"><input type="checkbox" id="season-winter" name="season" value="Зима"/>Зима</label>
+                    </div>
+                </li>    
+           </ul>
+           <input id='applyFilters' type="submit" value="Застосувати фільтри" class = "submit-btn">
+           <input type="button" value="Скинути фільтри" id="reset-btn" class = "reset-btn">
+        </form>
+       <div id="products" class="clothes">
+       </div>
+   </div>
+</div>
+
+
+<footer>
+    <img src="../img/logo.png" alt="logo">
+
+    <div class="mail">
+        <span>Свої питання пишить нам на пошту: </span>
+        <a href="mailto:ourchop@gmail.com">ourchop@gmail.com</a>
+    </div>
+
+    <div class="social-media">
+        <img src="../img/instagram.png" alt="insta">
+        <img src="../img/telegram.png" alt="tg">
+        <img src="../img/tiktok.png" alt="tiktok">
+    </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.min.js"></script>
+<script src="../scripts/validateToken.js"></script>
+<script src="../scripts/shop_script.js"></script>
+<script src="../scripts/modal.js"></script>
+<script src="../scripts/cart.js"></script>
+<script src="../scripts/filters.js"></script>
+
+</body>
+</html>
